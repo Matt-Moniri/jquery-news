@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+  <link rel="stylesheet" href="./css/jquery-ui.structure.min.css">
+  <link rel="stylesheet" href="./css/jquery-ui.theme.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div class="title" id="pageTitle">
+    <h1 class="title">NEWS RAKE</h1>
+  </div>
+  <div id="controls">
+    <form class="form" id="queryForm" action="post">
+      <h3 class="title">Step1: Collect news</h3>
+      <div class="entryBlock">
+        <div class="entry">
+          <label for="queryPhraseInput">Keyword(s): </label>
+          <input type="search" name="queryPhraseInput" id="queryPhraseInput" value="moon">
+        </div>
+        <p class="alertMessage"></p>
+      </div>
+      <div class="entryBlock">
+        <div class="entry">
+          <label for="queryDateMin">Date From (UTC): </label>
+          <input type="date" name="queryDateMin" id="queryDateMin" value="2022-04-10">
+        </div>
+        <p class="alertMessage"></p>
+      </div>
+      <div class="entryBlock">
+        <div class="entry">
+          <label for="queryDateMax">Date Until (UTC): </label>
+          <input type="date" name="queryDateMax" id="queryDateMax" value="2022-04-11">
+        </div>
+        <p class="alertMessage"></p>
+      </div>
+
+      <div class="entryBlock">
+        <div class="entry">
+          <label for="top100BasedOn">Top 100:</label>
+          <select name="top100BasedOn" id="top100BasedOn" placeholder="choose:">
+            <option id="relevancy" value="relevancy">most relevant</option>
+            <option id="popularity" value="popularity">most popular</option>
+            <option id="publishedAt" value="publishedAt">latest</option>
+          </select>
+        </div>
+        <p class="alertMessage"></p>
+      </div>
+      <div class="entryBlock submit">
+        <div class="entry">
+          <input type="submit" value="Collect News" id="bringNewsSubmitButton">
+        </div>
+        <p class="alertMessage"></p>
+      </div>
+    </form>
+
+
+    <div id="arrangeResults">
+      <h3 class="title">Step2: Filter the results</h3>
+      <div class="entryBlock">
+        <div class="entry">
+          <p id="step2Instructions"> </p>
+        </div>
+      </div>
+
+
+      <form autocomplete="off" action="post" id="searchForm">
+        <div class="entryBlock">
+          <div class="entry">
+            <input type="search" name="searchText" id="searchText">
+            <input type="submit" name="searchSubmit" id="searchSubmit" value="Search Titles">
+          </div>
+        </div>
+      </form>
+      <div class="entryBlock">
+
+        <div class="entry sortBy" id="sortBy">
+          <p>Sort By:</p>
+          <input type="button" value="Number&#9650;" class="sortButton" id="sortButton0" data-infoType="number"
+            data-property="id">
+          <input type="button" value="Time" class="sortButton" id="sortButton1" data-infoType="date"
+            data-property="publishedat">
+          <input type="button" value="Author" class="sortButton" id="sortButton2" data-infoType="text"
+            data-property="author">
+        </div>
+      </div>
+
+      <div class="entryBlock sliderBlock" id="sliderBlock">
+        <div class="entry">
+          <p>Pick ID range: </p>
+          <div id="sliderContainer">
+            <div id="sliderTicks">
+              <div class="sliderTick">
+                <p>1</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>10</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>20</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>30</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>40</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>50</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>60</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>70</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>80</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>90</p>
+                <p>|</p>
+              </div>
+              <div class="sliderTick">
+                <p>100</p>
+                <p>|</p>
+              </div>
+            </div>
+            <div id="slider"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="entryBlock">
+        <div class="entry">
+          <input type="reset" id="resetResults" value="Reset Filters">
+          <input type="button" id="restart" value="Restart">
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <!--<div class="spacer">spacer</div>-->
+  <div id="loadingSign">
+    <p> LOADING . . .</p>
+    <div id="loadingBarContainer">
+      <div id="loadingBarFiller">
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-1.11.0.min.js"></script>
+  <script src="./js/no-js.js"></script>
+  <script src="./js/jquery-ui.min.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
